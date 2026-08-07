@@ -81,6 +81,20 @@ export default function PublicationPost() {
     setTimeout(() => setDoiCopied(false), 2000);
   };
 
+  const downloadCitation = (format: 'bibtex' | 'ris') => {
+    const text = format === 'bibtex' ? pubBibtex : pubRis;
+    const filename = `${pub.id || 'citation'}.${format === 'bibtex' ? 'bib' : 'ris'}`;
+    const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="max-w-4xl text-stone-700 dark:text-stone-300 leading-relaxed">
       <article>
@@ -304,6 +318,24 @@ export default function PublicationPost() {
 
               <div className="bg-stone-50 dark:bg-stone-950 p-4 rounded-lg border border-stone-200 dark:border-stone-800 text-sm font-mono whitespace-pre-wrap break-words text-stone-700 dark:text-stone-300 max-h-64 overflow-y-auto">
                 {getCitationText()}
+              </div>
+
+              <div className="mt-8">
+                <h3 className="text-sm font-bold text-stone-900 dark:text-stone-100 mb-3 uppercase tracking-wider">Export Citation</h3>
+                <div className="flex flex-wrap gap-3">
+                  <button
+                    onClick={() => downloadCitation('bibtex')}
+                    className="inline-flex items-center px-4 py-2 text-sm font-medium border border-stone-200 dark:border-stone-700 hover:border-stone-300 dark:hover:border-stone-600 rounded bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300 transition-colors"
+                  >
+                    Download BibTeX
+                  </button>
+                  <button
+                    onClick={() => downloadCitation('ris')}
+                    className="inline-flex items-center px-4 py-2 text-sm font-medium border border-stone-200 dark:border-stone-700 hover:border-stone-300 dark:hover:border-stone-600 rounded bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300 transition-colors"
+                  >
+                    Download RIS
+                  </button>
+                </div>
               </div>
             </div>
 

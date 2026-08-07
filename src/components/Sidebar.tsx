@@ -85,8 +85,8 @@ export default function Sidebar() {
           </div>
         </div>
 
-        <div className="mt-auto pt-6 border-t border-stone-200 dark:border-stone-800">
-          <div className="flex justify-center space-x-3 mb-4">
+        <div className="mt-auto pt-6 border-t border-stone-200 dark:border-stone-800 flex flex-col items-center gap-4">
+          <div className="flex justify-center space-x-3">
             <a href={author.links.twitter} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded bg-stone-200 dark:bg-stone-800 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity text-stone-700 dark:text-stone-300">
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
             </a>
@@ -96,12 +96,12 @@ export default function Sidebar() {
             <a href={author.links.github} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded bg-stone-200 dark:bg-stone-800 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity text-stone-700 dark:text-stone-300">
               <Github className="w-4 h-4" />
             </a>
-            <AnimatedDownloadButton
-              href="/assets/pdf/CV.pdf"
-              className="h-8 shrink-0"
-              buttonClassName="px-3 rounded bg-stone-800 dark:bg-stone-200 text-stone-100 dark:text-stone-900 hover:bg-black dark:hover:bg-white transition-colors text-xs font-medium"
-            />
           </div>
+          <AnimatedDownloadButton
+            href="/assets/pdf/CV.pdf"
+            className="w-full max-w-[200px]"
+            buttonClassName="w-full flex justify-center py-2 rounded bg-stone-800 dark:bg-stone-200 text-stone-100 dark:text-stone-900 hover:bg-black dark:hover:bg-white transition-colors text-xs font-medium"
+          />
         </div>
       </aside>
 
@@ -236,23 +236,20 @@ export default function Sidebar() {
                     <span className="mr-3 text-stone-400 dark:text-stone-500"><BookOpen className="w-4 h-4" /></span>
                     Google Scholar
                   </a>
-                  <a href={author.links.github} target="_blank" rel="noopener noreferrer" className="flex items-center text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-stone-100 py-1.5 transition-colors">
-                    <span className="mr-3 text-stone-400 dark:text-stone-500"><Github className="w-4 h-4" /></span>
-                    GitHub
-                  </a>
-                  <a href={author.links.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-stone-100 py-1.5 transition-colors">
-                    <span className="mr-3 text-stone-400 dark:text-stone-500"><Linkedin className="w-4 h-4" /></span>
-                    LinkedIn
-                  </a>
-                  <a href={author.links.twitter} target="_blank" rel="noopener noreferrer" className="flex items-center text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-stone-100 py-1.5 transition-colors">
-                    <span className="mr-3 text-stone-400 dark:text-stone-500">
-                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
-                    </span>
-                    X
-                  </a>
                 </div>
 
-                <div className="mt-6 pt-6 border-t border-stone-200 dark:border-stone-800">
+                <div className="mt-6 pt-6 border-t border-stone-200 dark:border-stone-800 flex flex-col gap-5">
+                  <div className="flex justify-center space-x-6">
+                    <a href={author.links.twitter} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors">
+                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
+                    </a>
+                    <a href={author.links.linkedin} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors">
+                      <Linkedin className="w-5 h-5" />
+                    </a>
+                    <a href={author.links.github} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors">
+                      <Github className="w-5 h-5" />
+                    </a>
+                  </div>
                   <AnimatedDownloadButton
                     href="/assets/pdf/CV.pdf"
                     className="w-full"

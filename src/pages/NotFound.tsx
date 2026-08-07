@@ -70,11 +70,18 @@ export default function NotFound() {
         <div className="bsod-row">A fatal exception 404 has occurred at C0DE:ABAD1DEA in 0xC0DEBA5E.</div>
         <div className="bsod-row">The current request will be terminated.</div>
         <div className="bsod-row">&nbsp;</div>
-        <div className="bsod-row">* Press any key to return to the previous page.</div>
+        <div className="bsod-row">* Click the button below to return to the homepage.</div>
         <div className="bsod-row">* Press CTRL+ALT+DEL to restart your computer. You will</div>
         <div className="bsod-row">&nbsp;&nbsp;lose any unsaved information in all applications.</div>
         <div className="bsod-row">&nbsp;</div>
-        <div className="bsod-centered">Press any key to continue <span className="bsod-blink">&#9608;</span></div>
+        <div className="bsod-centered mt-6">
+          <button 
+            onClick={(e) => { e.stopPropagation(); navigate('/'); }}
+            className="px-6 py-2 bg-[#aaaaaa] text-[#0000aa] hover:bg-white transition-colors font-bold text-xl uppercase tracking-widest outline-none focus:ring-4 focus:ring-white"
+          >
+            Return to Homepage
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -18,6 +18,7 @@ export const siteData = {
     { label: 'Publications', path: '/publications' },
     { label: 'Projects', path: '/projects' },
     { label: 'Honors & Awards', path: '/honors' },
+    { label: 'Teaching Experience', path: '/teaching-experience' },
     { label: 'Research Blog', path: '/blog' },
   ],
 };

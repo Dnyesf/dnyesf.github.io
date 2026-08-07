@@ -9,12 +9,15 @@ import PageSkeleton from './components/PageSkeleton';
 import FullPageSkeleton from './components/FullPageSkeleton';
 import Breadcrumbs from './components/Breadcrumbs';
 
+import { useTheme } from './useTheme';
+
 const Home = lazy(() => import('./pages/Home'));
 const Publications = lazy(() => import('./pages/Publications'));
 const PublicationPost = lazy(() => import('./pages/PublicationPost'));
 const Projects = lazy(() => import('./pages/Projects'));
 const ProjectPost = lazy(() => import('./pages/ProjectPost'));
 const Honors = lazy(() => import('./pages/Honors'));
+const TeachingExperience = lazy(() => import('./pages/TeachingExperience'));
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
 const NotFound = lazy(() => import('./pages/NotFound'));
@@ -64,6 +67,7 @@ function AnimatedRoutes() {
         <Route path="/projects" element={<PageWrapper><Projects /></PageWrapper>} />
         <Route path="/projects/:id" element={<PageWrapper><ProjectPost /></PageWrapper>} />
         <Route path="/honors" element={<PageWrapper><Honors /></PageWrapper>} />
+        <Route path="/teaching-experience" element={<PageWrapper><TeachingExperience /></PageWrapper>} />
         <Route path="/blog" element={<PageWrapper><Blog /></PageWrapper>} />
         <Route path="/blog/:id" element={<PageWrapper><BlogPost /></PageWrapper>} />
         <Route path="*" element={<NotFound />} />
@@ -74,6 +78,7 @@ function AnimatedRoutes() {
 
 export default function App() {
   const [isInitialLoading, setIsInitialLoading] = useState(true);
+  const { isDark } = useTheme();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -100,12 +105,18 @@ export default function App() {
           </div>
           
           <footer className="mt-auto border-t border-stone-200 dark:border-stone-800 py-6 lg:py-8 transition-colors">
-            <div className="px-6 sm:px-8 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs lg:text-sm text-stone-500 dark:text-stone-400">
-              <div>
-                &copy; {new Date().getFullYear()} Danial Eskandari Faruji. Powered by React & Tailwind CSS.
+            <div className="px-6 sm:px-8 lg:px-12 flex flex-col xl:flex-row items-center justify-between gap-6 text-xs lg:text-sm text-stone-500 dark:text-stone-400">
+              <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-center xl:text-left">
+                <span>&copy; {new Date().getFullYear()} Danial Eskandari Faruji.</span>
+                <span className="hidden sm:inline">&bull;</span>
+                <span>Powered by React & Tailwind CSS.</span>
               </div>
-              <div>
-                Last update: {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+              <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mt-2 xl:mt-0">
+                <span>Last update: {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</span>
+                <span className="hidden sm:inline">&bull;</span>
+                <div className="flex items-center opacity-80 hover:opacity-100 transition-opacity">
+                  <img src={`https://api.visitorbadge.io/api/visitors?path=dnyesf.portfolio&countColor=%23263759&style=flat${isDark ? '&labelStyle=lower' : ''}`} alt="Visitor count" className="h-5" />
+                </div>
               </div>
             </div>
           </footer>

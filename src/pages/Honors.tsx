@@ -12,6 +12,10 @@ export default function Honors() {
       <h1 className="text-2xl sm:text-3xl font-serif italic font-bold mb-8 text-stone-800 dark:text-stone-200">Honors & Awards</h1>
       <ul className="space-y-8 text-sm">
         <li className="flex flex-col border-l-2 border-stone-200 dark:border-stone-800 pl-5 py-1">
+          <span className="text-stone-900 dark:text-stone-100 font-medium text-base">Youngest Researcher Award</span>
+          <span className="text-stone-500 dark:text-stone-400 text-xs mt-1 uppercase tracking-wider">15th International Conference on Computer and Knowledge Engineering (ICCKE 2025), Ferdowsi University of Mashhad, 2025</span>
+        </li>
+        <li className="flex flex-col border-l-2 border-stone-200 dark:border-stone-800 pl-5 py-1">
           <span className="text-stone-900 dark:text-stone-100 font-medium text-base">3rd Place in the Fintech Entrepreneurship Competition in Iran</span>
           <span className="text-stone-500 dark:text-stone-400 text-xs mt-1 uppercase tracking-wider">ICT Research Institute</span>
         </li>
